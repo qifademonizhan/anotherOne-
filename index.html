@@ -9,7 +9,7 @@
   left: 50%;           
   transform: translate(-50%, -50%); 
 }
-    </style>
+    </style type="module">
   </head>
   <input type = "text" id = "nword" placeholder = "닉넴">
   <input type = "text" id = "password" placeholder = "비1번">
@@ -37,6 +37,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+    const db = getFirestore(app);
     import { doc, setDoc } from "firebase/firestore";
     const a = document.getElementById("btn");
     const coiner = document.getElementById("anniu");
