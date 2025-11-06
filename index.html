@@ -11,49 +11,9 @@
 }
     </style>
   </head>
-  <input type = "text" id = "nword" placeholder = "닉넴">
-  <input type = "text" id = "password" placeholder = "비1번">
-  <button id = "anniu" >계정 만들기</button>
   <button id = "btn" > 샌즈보러가기 </button>
-  <script type = "module">
-    // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCEvE_lccy97Ppjgrv-GumHiNXfUJ3SiZc",
-  authDomain: "qifa-23727.firebaseapp.com",
-  projectId: "qifa-23727",
-  storageBucket: "qifa-23727.firebasestorage.app",
-  messagingSenderId: "328358384863",
-  appId: "1:328358384863:web:fdbc10b884607fa522c56a",
-  measurementId: "G-4K6VLR20ER"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-import { getFirestore, doc, setDoc } from "firebase/firestore";
-    const db = getFirestore(app);
+  <script>
     const a = document.getElementById("btn");
-    const coiner = document.getElementById("anniu");
     a.addEventListener("click", () => { window.location.href = "https://qifademonizhan.github.io/Wanzhang/" });
-    coiner.addEventListener("click", nameStorage );
-
-    async function nameStorage() {
-      const newNameEl = document.getElementById("nword")
-      const passwordOriginal = document.getElementById("password")
-      const newName = newNameEl?.value?.trim();   
-      const passwordForName = passwordOriginal?.value?.trim();   
-      await setDoc( doc(db,"name",newName) , {
-        "name": newName ,
-        "password": passwordForName
-      })
-      alert("work done")
-    }
   </script>
 </html>
