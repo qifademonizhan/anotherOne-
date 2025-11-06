@@ -37,16 +37,18 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+import { getFirestore, doc, setDoc } from "firebase/firestore";
     const db = getFirestore(app);
-    import { doc, setDoc } from "firebase/firestore";
     const a = document.getElementById("btn");
     const coiner = document.getElementById("anniu");
     a.addEventListener("click", () => { window.location.href = "https://qifademonizhan.github.io/Wanzhang/" });
     coiner.addEventListener("click", nameStorage );
 
     async function nameStorage() {
-      const newName = document.getElementById("nword").value
-      const passwordForName = document.getElementById("password").value
+      const newNameEl = document.getElementById("nword")
+      const passwordOriginal = document.getElementById("password")
+      const newName = newNameEl?.value?.trim();   
+      const passwordForName = passwordOriginal?.value?.trim();   
       await setDoc( doc(db,"name",newName) , {
         "name": newName ,
         "password": passwordForName
